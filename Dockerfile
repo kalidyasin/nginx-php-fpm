@@ -20,6 +20,9 @@ WORKDIR /var/www/html/public
 # Copy PHP file into the container
 COPY index.php index.php
 
+# Copy style.css file into the container
+COPY style.css style.css
+
 # Make sure PHP-FPM logs to stderr
 # RUN echo 'error_log = /dev/stderr' >> /usr/local/etc/php-fpm.d/www.conf \
 #     && echo 'catch_workers_output = yes' >> /usr/local/etc/php-fpm.d/www.conf

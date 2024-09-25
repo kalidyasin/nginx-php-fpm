@@ -1,72 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>PHP-FPM and Nginx Test</title>
-	<style>
-		body {
-			font-family: Arial, sans-serif;
-			background-color: #f0f0f0;
-			margin: 0;
-			padding: 20px;
-		}
-
-		.container {
-			max-width: 600px;
-			margin: 0 auto;
-			background-color: #fff;
-			padding: 20px;
-			border-radius: 8px;
-			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-		}
-
-		h1 {
-			color: #333;
-		}
-
-		pre {
-			background-color: #eee;
-			padding: 10px;
-			border-radius: 5px;
-		}
-	</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP-FPM and Nginx Test Page</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-	<div class="container">
-		<h1>Welcome to PHP-FPM & Nginx Test Page</h1>
-		<p>This page is served by Nginx with PHP-FPM.</p>
+    <div class="container">
+        <h1>PHP-FPM and Nginx Test Page</h1>
 
-		<h2>PHP Test</h2>
-		<?php
-		// Output a simple message to verify PHP is running correctly
-		echo "<p><strong>PHP is working!</strong></p>";
-		?>
+        <section class="php-info">
+            <h2>PHP Information</h2>
+            <p><strong>Server Version:</strong> <?php echo phpversion(); ?></p>
+            <p><strong>SAPI:</strong> <?php echo php_sapi_name(); ?></p>
+            <p><strong>Configuration File:</strong> <?php echo php_ini_loaded_file(); ?></p>
+            <p><strong>Loaded Extensions:</strong> <?php echo implode(', ', get_loaded_extensions()); ?></p>
+        </section>
 
-		<h2>Server Information</h2>
-		<pre>
-		<?php
-			// Output server information for debugging purposes
-			echo "Server IP: " . $_SERVER['SERVER_ADDR'] . "\n";
-			echo "Client IP: " . $_SERVER['REMOTE_ADDR'] . "\n";
-			echo "Server Name: " . $_SERVER['SERVER_NAME'] . "\n";
-			echo "Server Software: " . $_SERVER['SERVER_SOFTWARE'] . "\n";
-		?>
-        </pre>
+        <section class="server-info">
+            <h2>Server Information</h2>
+            <p><strong>Server IP:</strong> <?php echo $_SERVER['SERVER_ADDR']; ?></p>
+            <p><strong>Client IP:</strong> <?php echo $_SERVER['REMOTE_ADDR']; ?></p>
+            <p><strong>Server Name:</strong> <?php echo $_SERVER['SERVER_NAME']; ?></p>
+            <p><strong>Server Software:</strong> <?php echo $_SERVER['SERVER_SOFTWARE']; ?></p>
+        </section>
 
-		<h2>PHP Information</h2>
-		<p>You can also view the full PHP information using the link below:</p>
-		<p><a href="?phpinfo=true">View PHP Info</a></p>
+        <section class="php-test">
+            <h2>PHP Test</h2>
+            <?php
+            // Example of a simple PHP function
+            function greet($name) {
+                return "Hello, <strong>$name!</strong>";
+            }
 
-		<?php
-		// Display full PHP information if the query string has phpinfo=true
-		if (isset($_GET['phpinfo']) && $_GET['phpinfo'] === 'true') {
-			phpinfo();
-		}
-		?>
-	</div>
+            echo greet("World");
+            ?>
+        </section>
+
+        <section class="dynamic-content">
+            <h2>Dynamic Content</h2>
+            <form method="post" action="">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <button type="submit">Submit</button>
+            </form>
+
+            <?php
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $name = htmlspecialchars($_POST['name']); // Sanitized user input
+                echo "<p>You entered: <strong>$name</strong></p>";
+            }
+            ?>
+        </section>
+    </div>
 </body>
-
 </html>

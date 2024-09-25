@@ -1,0 +1,135 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #e9ecef; /* Light gray background */
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6; /* Improved line height for readability */
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Softer shadow */
+    background-color: #ffffff; /* White background for the container */
+    animation: fadeIn 0.5s; /* Fade-in animation */
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+h1 {
+    font-size: 36px; /* Larger font size */
+    margin-bottom: 20px;
+    color: #007bff; /* Blue color for the main title */
+    text-align: center; /* Center-aligning the main title */
+}
+
+h2 {
+    font-size: 28px; /* Increased font size */
+    margin-bottom: 15px;
+    color: #343a40; /* Dark gray for subheadings */
+    border-bottom: 2px solid #007bff; /* Underline effect for subheadings */
+    padding-bottom: 5px; /* Space between the text and underline */
+}
+
+p {
+    margin-bottom: 15px;
+    color: #495057; /* Darker gray for paragraph text */
+}
+
+pre {
+    background-color: #f8f9fa; /* Light gray for code blocks */
+    padding: 15px;
+    border-radius: 5px;
+    overflow-x: auto; /* Allow horizontal scrolling if necessary */
+    border: 1px solid #ced4da; /* Light gray border for better visibility */
+    transition: background-color 0.3s; /* Smooth transition for background */
+}
+
+pre:hover {
+    background-color: #e2e6ea; /* Darker gray on hover for code blocks */
+}
+
+form {
+    margin-bottom: 20px;
+    padding: 20px; /* Increased padding */
+    background-color: #f1f1f1; /* Light background for the form */
+    border-radius: 5px; /* Rounded corners for the form */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: transform 0.3s; /* Smooth transition for hover */
+}
+
+form:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold; /* Bold labels for better visibility */
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 12px; /* Increased padding for better touch targets */
+    border: 1px solid #ced4da; /* Light gray border */
+    border-radius: 4px;
+    transition: border-color 0.3s; /* Smooth transition for focus */
+}
+
+input[type="text"]:focus {
+    border-color: #007bff; /* Blue border on focus */
+    outline: none; /* Remove default outline */
+}
+
+button {
+    padding: 12px 15px; /* Increased padding for buttons */
+    background-color: #28a745; /* Green background for the button */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transition for hover */
+}
+
+button:hover {
+    background-color: #218838; /* Darker green on hover */
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
+
+.dynamic-content {
+    background-color: #e9ecef; /* Light gray background for dynamic content */
+    border-radius: 5px; /* Rounded corners */
+    padding: 15px; /* Added padding */
+    border: 1px solid #ced4da; /* Light gray border */
+}
+
+.dynamic-content p {
+    margin: 10px 0; /* Margin adjustments for paragraphs */
+    font-size: 18px; /* Increased font size for output */
+    font-weight: bold; /* Bold text for output */
+    color: #343a40; /* Dark gray for output text */
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    h1, h2 {
+        font-size: 1.5em; /* Responsive font sizes */
+    }
+
+    button {
+        width: 100%; /* Full-width buttons on smaller screens */
+    }
+}

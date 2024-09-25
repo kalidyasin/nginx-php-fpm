@@ -23,6 +23,15 @@ COPY index.php index.php
 # Copy style.css file into the container
 COPY style.css style.css
 
+# Set permissions
+RUN chown -R www-data:www-data /var/www/html
+
+# Switch to 'www-data' user
+# USER www-data
+
+# Install PHP extensions
+# RUN docker-php-ext-install mysqli gd
+
 # Make sure PHP-FPM logs to stderr
 # RUN echo 'error_log = /dev/stderr' >> /usr/local/etc/php-fpm.d/www.conf \
 #     && echo 'catch_workers_output = yes' >> /usr/local/etc/php-fpm.d/www.conf
